@@ -14,5 +14,5 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: | 
-            makdir /opt/applications/oic/OicBackend
+            mkdir /opt/applications/oic/OicBackend
             ls -al /opt:applications/oic
