@@ -13,6 +13,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
-          script: | 
-            mkdir /opt/applications/oic/OicBackend
-            ls -al /opt/applications/oic
+          script: whoami
