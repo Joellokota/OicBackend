@@ -1,0 +1,18 @@
+name: deploy my app new oic
+on: [push]
+jobs:
+
+  create-folder:
+    name: create-folder
+    runs-on: ubuntu-latest
+    steps:
+      - name: executing remote ssh commands
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          script: | 
+            mkdir /opt/applications/oic/OicBackend
+            ls -al /opt/applications/oic
