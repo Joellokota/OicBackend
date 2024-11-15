@@ -6,8 +6,8 @@ jobs:
     name: create-folder
     runs-on: ubuntu-latest
     steps:
-      - name: executing remote SSH command on my server 1
-        uses: appleboy/ssh-action@v1.0.3
+      - name: executing remote SSH command on my new test 1
+        uses: appleboy/ssh-action@v1.1.0
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
