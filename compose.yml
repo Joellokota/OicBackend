@@ -1,17 +1,9 @@
 services:
-  oicbackend:
-    container_name: oic-backend
+  oic-backend:
+    image: joellokota/oicbackend:0.0.1-SNAPSHOT
+    container_name: oic-backend2
     restart: always
-    environment:
-      - server.port=${APP_SERVER_PORT}
     ports:
       - '9090:9090'
     expose:
       - '9090'
-    networks:
-      - applications-network
-
-networks:
-  applications-network:
-    external: true
-    name: applications-network
