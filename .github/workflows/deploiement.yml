@@ -16,3 +16,22 @@ jobs:
           script: |
             sudo mkdir /opt/applications/oic/OicBackend
             ls -al /opt/applications/oic
+  generate-image:
+    name: generate-image
+    runs-on: ubuntu-latest
+    needs: ['create-folder']
+    steps:
+      - name: cloner mon répertoire des sources
+        uses: actions/checkout@master
+      - name: Setup Java Version
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '17'
+      - name: Generate automatic Image
+        run: |
+          ./mvnw clean package spring-boot:build-image \
+          -Ddocker.publishRegistry.username=${{ secrets.DCK_HUB_USERNAME }} \
+          -Ddocker.publishRegistry.password=${{ secrets.DCK_HUB_PASSWORD }} \
+          -Dspring-boot.build-image.publish=true \
+          -Dmaven.test.skip=true
