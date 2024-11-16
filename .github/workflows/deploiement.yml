@@ -30,7 +30,7 @@ jobs:
           java-version: '17'
       - name: Generate automatic Image
         run: |
-          ./mvnw clean package spring-boot:build-image \
+          mvn clean package spring-boot:build-image \
           -Ddocker.publishRegistry.username=${{ secrets.DCK_HUB_USERNAME }} \
           -Ddocker.publishRegistry.password=${{ secrets.DCK_HUB_PASSWORD }} \
           -Dspring-boot.build-image.publish=true \
