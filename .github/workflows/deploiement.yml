@@ -17,6 +17,7 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             sudo mkdir /opt/applications/oic/${{env.IMAGE}}
+            sudo chmod 777 /opt/applications/oic/${{env.IMAGE}}
             ls -al /opt/applications/oic
   generate-image:
     name: generate-image
