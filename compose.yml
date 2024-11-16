@@ -1,5 +1,5 @@
 services:
-  oic-backend:
+  oicbackend:
     container_name: oic-backend
     restart: always
     environment:
