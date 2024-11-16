@@ -54,7 +54,7 @@ jobs:
           port: ${{ secrets.PORT }}
           source: "compose.yml"
           target: /opt/applications/oic/${{env.IMAGE}}
-      - name: executing command to run container
+      - name: executing command by docker and run container
         uses: appleboy/ssh-action@v1.1.0
         with:
           host: ${{ secrets.HOST }}
