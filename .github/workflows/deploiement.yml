@@ -54,3 +54,13 @@ jobs:
           port: ${{ secrets.PORT }}
           source: "compose.yml"
           target: /opt/applications/oic/${{env.IMAGE}}
+      - name: executing command to run container
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            echo APP_SERVER_PORT="${{ secrets.APP_SERVER_PORT }}" >> /opt/applications/oic/${{env.IMAGE}}/.env
+            docker compose -f /opt/applications/oic/${{env.IMAGE}}/compose.yml up -d
